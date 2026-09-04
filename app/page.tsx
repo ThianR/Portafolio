@@ -1,5 +1,6 @@
 'use client';
 
+import type { CSSProperties } from 'react';
 import { useEffect, useState } from 'react';
 import { ArrowUpRight, Code2, GitBranch } from 'lucide-react';
 
@@ -97,21 +98,9 @@ const projects = [
   },
 ];
 
-const tools = [
-  'Java',
-  'Spring Boot',
-  'Flutter',
-  'Dart',
-  'TypeScript',
-  'PostgreSQL',
-  'APIs REST',
-  'Offline-first',
-  'Arquitectura modular',
-  'Automatizacion',
-];
-
 export default function Home() {
   const [activeSection, setActiveSection] = useState('about');
+  const [spotlight, setSpotlight] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const sectionIds = ['about', 'experience', 'projects'];
@@ -141,11 +130,41 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const revealTargets = document.querySelectorAll('.reveal-on-scroll');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      },
+      { rootMargin: '0px 0px -12% 0px', threshold: 0.12 },
+    );
+
+    revealTargets.forEach((target) => observer.observe(target));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main
+      className="relative min-h-screen overflow-hidden bg-background text-foreground"
+      onMouseMove={(event) =>
+        setSpotlight({ x: event.clientX, y: event.clientY })
+      }
+      style={
+        {
+          '--spotlight-x': `${spotlight.x}px`,
+          '--spotlight-y': `${spotlight.y}px`,
+        } as CSSProperties
+      }
+    >
+      <div className="pointer-events-none fixed inset-0 z-0 hidden spotlight-glow lg:block" />
       <div
         data-shell
-        className="portfolio-shell mx-auto grid min-h-screen grid-cols-1 px-6 py-12 md:px-12 lg:px-0 lg:py-0"
+        className="portfolio-shell relative z-10 mx-auto grid min-h-screen grid-cols-1 px-6 py-12 md:px-12 lg:px-0 lg:py-0"
       >
         <header
           data-left
@@ -197,7 +216,7 @@ export default function Home() {
                 key={label}
                 href={href}
                 aria-label={label}
-                className="grid h-6 w-6 place-items-center rounded-sm bg-slate-400/80 font-mono text-[10px] font-bold text-slate-950 transition hover:-translate-y-1 hover:bg-sky-300 sm:h-8 sm:w-8 sm:text-xs lg:h-6 lg:w-6"
+                className="social-link grid h-6 w-6 place-items-center rounded-sm bg-slate-400/80 font-mono text-[10px] font-bold text-slate-950 transition sm:h-8 sm:w-8 sm:text-xs lg:h-6 lg:w-6"
               >
                 {initials}
               </a>
@@ -206,7 +225,10 @@ export default function Home() {
         </header>
 
         <div data-content className="portfolio-content pt-16 lg:py-24">
-          <section id="about" className="scroll-mt-24 lg:min-h-[542px]">
+          <section
+            id="about"
+            className="reveal-on-scroll scroll-mt-24 lg:min-h-[542px]"
+          >
             <div className="sticky top-0 z-10 -mx-6 mb-4 bg-background/85 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:hidden">
               <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-slate-200">
                 About
@@ -257,7 +279,12 @@ export default function Home() {
             </div>
           </section>
 
-          <section id="experience" className="mt-28 scroll-mt-24">
+          <div className="section-divider" aria-hidden="true" />
+
+          <section
+            id="experience"
+            className="reveal-on-scroll mt-28 scroll-mt-24"
+          >
             <div className="sticky top-0 z-10 -mx-6 mb-4 bg-background/85 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:hidden">
               <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-slate-200">
                 Experience
@@ -267,7 +294,7 @@ export default function Home() {
               {experience.map((item) => (
                 <article
                   key={`${item.period}-${item.role}`}
-                  className="group grid gap-4 rounded-md p-0 transition sm:grid-cols-[9rem_1fr] sm:gap-8 lg:-mx-6 lg:p-6 lg:hover:bg-slate-800/45"
+                  className="portfolio-row group grid gap-4 rounded-md p-0 transition sm:grid-cols-[9rem_1fr] sm:gap-8 lg:-mx-6 lg:p-6"
                 >
                   <p className="pt-1 font-mono text-sm font-semibold uppercase tracking-wide text-slate-500">
                     {item.period}
@@ -285,7 +312,7 @@ export default function Home() {
                       {item.stack.map((tag) => (
                         <li
                           key={tag}
-                          className="rounded-full bg-sky-400/10 px-3 py-1 text-sm font-medium text-sky-300"
+                          className="tech-pill rounded-full bg-sky-400/10 px-3 py-1 text-sm font-medium text-sky-300"
                         >
                           {tag}
                         </li>
@@ -297,7 +324,12 @@ export default function Home() {
             </div>
           </section>
 
-          <section id="projects" className="mt-28 scroll-mt-24">
+          <div className="section-divider" aria-hidden="true" />
+
+          <section
+            id="projects"
+            className="reveal-on-scroll mt-28 scroll-mt-24"
+          >
             <div className="sticky top-0 z-10 -mx-6 mb-4 bg-background/85 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:hidden">
               <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-slate-200">
                 Projects
@@ -307,9 +339,9 @@ export default function Home() {
               {projects.map((project) => (
                 <article
                   key={project.name}
-                  className="group grid gap-5 rounded-md transition sm:grid-cols-[9rem_1fr] sm:gap-8 lg:-mx-6 lg:p-6 lg:hover:bg-slate-800/45"
+                  className="portfolio-row group grid gap-5 rounded-md transition sm:grid-cols-[9rem_1fr] sm:gap-8 lg:-mx-6 lg:p-6"
                 >
-                  <div className="hidden h-20 rounded border border-slate-700/80 bg-slate-800/70 p-3 sm:flex">
+                  <div className="project-thumb hidden h-20 rounded border border-slate-700/80 bg-slate-800/70 p-3 sm:flex">
                     <Code2 className="mt-auto text-slate-500 transition group-hover:text-sky-300" />
                   </div>
                   <div>
@@ -322,7 +354,7 @@ export default function Home() {
                           <a
                             href={project.live}
                             aria-label={`Abrir demo de ${project.name}`}
-                            className="transition hover:text-sky-300"
+                            className="project-link transition hover:text-sky-300"
                           >
                             <ArrowUpRight size={18} />
                           </a>
@@ -330,7 +362,7 @@ export default function Home() {
                         <a
                           href={project.href}
                           aria-label={`Abrir repositorio de ${project.name}`}
-                          className="transition hover:text-sky-300"
+                          className="project-link transition hover:text-sky-300"
                         >
                           <GitBranch size={18} />
                         </a>
@@ -343,7 +375,7 @@ export default function Home() {
                       {project.stack.map((tag) => (
                         <li
                           key={tag}
-                          className="rounded-full bg-sky-400/10 px-3 py-1 text-sm font-medium text-sky-300"
+                          className="tech-pill rounded-full bg-sky-400/10 px-3 py-1 text-sm font-medium text-sky-300"
                         >
                           {tag}
                         </li>
