@@ -141,3 +141,18 @@ body {
 .vertical-link {
   writing-mode: vertical-rl;
 }
+
+.portfolio-shell {
+  max-width: 1200px;
+}
+
+@media (min-width: 1024px) {
+  .portfolio-shell {
+    grid-template-columns: 560px 608px;
+    column-gap: 32px;
+  }
+
+  .portfolio-content {
+    width: 608px;
+  }
+}

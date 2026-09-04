@@ -1,4 +1,7 @@
-import { ArrowUpRight, Code2, GitBranch, MapPin } from 'lucide-react';
+'use client';
+
+import { useEffect, useState } from 'react';
+import { ArrowUpRight, Code2, GitBranch } from 'lucide-react';
 
 const navItems = [
   ['ABOUT', '#about'],
@@ -92,33 +95,78 @@ const tools = [
 ];
 
 export default function Home() {
+  const [activeSection, setActiveSection] = useState('about');
+
+  useEffect(() => {
+    const sectionIds = ['about', 'experience', 'projects'];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visible?.target.id) {
+          setActiveSection(visible.target.id);
+        }
+      },
+      {
+        rootMargin: '-35% 0px -45% 0px',
+        threshold: [0.1, 0.25, 0.5, 0.75],
+      },
+    );
+
+    sectionIds.forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) {
+        observer.observe(section);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto grid min-h-screen max-w-7xl grid-cols-1 px-6 py-12 md:px-12 lg:grid-cols-[42%_58%] lg:px-24 lg:py-0">
-        <header className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:justify-between lg:py-24">
+      <div
+        data-shell
+        className="portfolio-shell mx-auto grid min-h-screen grid-cols-1 px-6 py-12 md:px-12 lg:px-0 lg:py-0"
+      >
+        <header
+          data-left
+          className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:justify-between lg:py-24"
+        >
           <div>
             <a href="#about" className="inline-block">
-              <h1 className="text-[clamp(3rem,7vw,5.25rem)] font-bold leading-none tracking-normal text-slate-100">
+              <h1 className="text-4xl font-bold leading-[1.1] tracking-normal text-slate-100 sm:text-5xl">
                 Thian Rolon
               </h1>
             </a>
-            <h2 className="mt-4 text-2xl font-semibold leading-tight text-slate-200">
+            <h2 className="mt-3 text-lg font-semibold leading-tight text-slate-200 sm:text-xl">
               Desarrollador Full Stack
             </h2>
-            <p className="mt-6 max-w-sm text-xl leading-8 text-slate-400">
-              Construyo sistemas web, apps moviles e integraciones claras para
-              problemas reales.
+            <p className="mt-4 max-w-xs text-lg leading-7 text-slate-400">
+              Construyo productos digitales claros para problemas reales.
             </p>
 
-            <nav className="mt-20 hidden lg:block" aria-label="Principal">
-              <ul className="space-y-6">
+            <nav className="mt-16 hidden lg:block" aria-label="Principal">
+              <ul>
                 {navItems.map(([label, href]) => (
                   <li key={href}>
                     <a
                       href={href}
-                      className="group flex items-center gap-5 text-sm font-bold uppercase tracking-[0.18em] text-slate-500 transition hover:text-slate-100"
+                      className={`group flex h-10 items-center text-xs font-bold uppercase tracking-[0.16em] transition ${
+                        activeSection === href.slice(1)
+                          ? 'text-slate-200'
+                          : 'text-slate-500 hover:text-slate-200'
+                      }`}
                     >
-                      <span className="h-px w-10 bg-slate-600 transition-all group-hover:w-20 group-hover:bg-slate-100" />
+                      <span
+                        className={`mr-4 h-px transition-all ${
+                          activeSection === href.slice(1)
+                            ? 'w-16 bg-slate-200'
+                            : 'w-8 bg-slate-600 group-hover:w-16 group-hover:bg-slate-200'
+                        }`}
+                      />
                       <span>{label}</span>
                     </a>
                   </li>
@@ -133,7 +181,7 @@ export default function Home() {
                 key={label}
                 href={href}
                 aria-label={label}
-                className="grid h-8 w-8 place-items-center rounded-sm bg-slate-400/80 font-mono text-xs font-bold text-slate-950 transition hover:-translate-y-1 hover:bg-sky-300"
+                className="grid h-6 w-6 place-items-center rounded-sm bg-slate-400/80 font-mono text-[10px] font-bold text-slate-950 transition hover:-translate-y-1 hover:bg-sky-300 sm:h-8 sm:w-8 sm:text-xs lg:h-6 lg:w-6"
               >
                 {initials}
               </a>
@@ -141,14 +189,14 @@ export default function Home() {
           </div>
         </header>
 
-        <div className="pt-16 lg:py-24">
-          <section id="about" className="scroll-mt-24">
+        <div data-content className="portfolio-content pt-16 lg:py-24">
+          <section id="about" className="scroll-mt-24 lg:min-h-[542px]">
             <div className="sticky top-0 z-10 -mx-6 mb-4 bg-background/85 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:hidden">
               <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-slate-200">
                 About
               </h2>
             </div>
-            <div className="space-y-6 text-xl leading-9 text-slate-400">
+            <div className="space-y-5 text-base leading-7 text-slate-400 sm:text-lg sm:leading-8 lg:text-base lg:leading-7">
               <p>
                 Hola, soy Cristhian Rolon, aunque en mis proyectos vas a verme
                 como Thian Rolon. Me gusta construir productos que conectan
@@ -271,32 +319,10 @@ export default function Home() {
             </div>
           </section>
 
-          <section id="contact" className="mt-28 scroll-mt-24 pb-20">
-            <div className="rounded-md border border-slate-700/70 bg-slate-800/35 p-6">
-              <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-sky-300">
-                <MapPin size={16} />
-                Paraguay
-              </p>
-              <h2 className="mt-4 text-2xl font-semibold text-slate-100">
-                Disponible para colaborar en productos e integraciones.
-              </h2>
-              <p className="mt-3 max-w-2xl text-base leading-7 text-slate-400">
-                La forma mas directa de ver mi trabajo y contactarme es desde
-                GitHub. Este portafolio tambien vive ahi, en la rama main.
-              </p>
-              <a
-                href="https://github.com/ThianR"
-                className="mt-5 inline-flex items-center gap-2 text-base font-semibold text-slate-100 transition hover:text-sky-300"
-              >
-                github.com/ThianR
-                <ArrowUpRight size={18} />
-              </a>
-            </div>
-          </section>
-
-          <footer className="pb-10 text-sm leading-6 text-slate-500">
+          <footer className="mt-28 max-w-md pb-20 text-sm leading-6 text-slate-500">
             Disenado y construido por Thian Rolon. Inspirado en portafolios
-            oscuros, editoriales y orientados a proyectos.
+            oscuros, editoriales y orientados a proyectos. El codigo vive en la
+            rama main del repositorio.
           </footer>
         </div>
       </div>
