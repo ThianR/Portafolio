@@ -18,20 +18,36 @@ const socialLinks = [
 
 const experience = [
   {
-    period: '2026 - PRESENTE',
-    role: 'Desarrollador de productos digitales',
-    company: 'Proyectos propios',
+    period: '2019 - PRESENTE',
+    role: 'Analista de sistemas, Desarrollador Java y DBA',
+    company: 'Grupo Inventiva S.A.C.I',
     description:
-      'Construyo sistemas web, aplicaciones moviles e integraciones para resolver procesos reales: asistencia, facturacion electronica, participacion ciudadana, finanzas personales y herramientas para IA.',
-    stack: ['Arquitectura', 'APIs', 'Producto'],
+      'Participo en el desarrollo e implementacion de soluciones Java, nuevas versiones del ERP web de la empresa y proyectos para clientes con trato directo con usuarios, equipos tecnicos y directivos.',
+    stack: ['Java', 'ERP Web', 'DBA', 'Implementacion'],
   },
   {
-    period: '2026',
-    role: 'Integraciones para Paraguay',
-    company: 'SIFEN, RRHH y plataformas operativas',
+    period: '2022',
+    role: 'Responsable de desarrollo e implementacion',
+    company: 'SID - Sistema Integrado DIMABEL',
     description:
-      'Trabajo con dominios donde importan la trazabilidad, la seguridad y la claridad del flujo: generacion de documentos, comunicacion con servicios externos y paneles faciles de operar.',
-    stack: ['Java', 'Spring Boot', 'PostgreSQL'],
+      'Lidere el desarrollo e implementacion del sistema SID. La puesta en marcha fue exitosa y acompano un cambio institucional de alto impacto: DIMABEL paso a convertirse en DIGEMABEL, Direccion General de Material Belico.',
+    stack: ['Java', 'Sistemas publicos', 'Implementacion', 'Usuarios clave'],
+  },
+  {
+    period: '2024',
+    role: 'Reconocimiento institucional',
+    company: 'DIGEMABEL',
+    description:
+      'Recibi un reconocimiento por parte del director de DIGEMABEL por el trabajo realizado y el impacto del sistema implementado.',
+    stack: ['Reconocimiento', 'Impacto institucional'],
+  },
+  {
+    period: '2017 - 2019',
+    role: 'Desarrollador Oracle Forms e iReport',
+    company: 'Grupo Inventiva S.A.C.I',
+    description:
+      'Inicie mi carrera desarrollando y manteniendo soluciones con Oracle Forms e iReport, trabajando sobre procesos empresariales y reportes operativos antes de incorporarme al equipo Java.',
+    stack: ['Oracle Forms', 'iReport', 'Reportes', 'Procesos'],
   },
 ];
 
@@ -142,10 +158,10 @@ export default function Home() {
               </h1>
             </a>
             <h2 className="mt-3 text-lg font-semibold leading-tight text-slate-200 sm:text-xl">
-              Desarrollador Full Stack
+              Analista de Sistemas · Desarrollador · DBA
             </h2>
             <p className="mt-4 max-w-xs text-lg leading-7 text-slate-400">
-              Construyo productos digitales claros para problemas reales.
+              Construyo e implemento sistemas empresariales con impacto real.
             </p>
 
             <nav className="mt-16 hidden lg:block" aria-label="Principal">
@@ -199,24 +215,24 @@ export default function Home() {
             <div className="space-y-5 text-base leading-7 text-slate-400 sm:text-lg sm:leading-8 lg:text-base lg:leading-7">
               <p>
                 Hola, soy Cristhian Rolon, aunque en mis proyectos vas a verme
-                como Thian Rolon. Me gusta construir productos que conectan
-                arquitectura solida con interfaces faciles de entender. Disfruto
-                trabajar en esa zona donde una idea tecnica se vuelve una
-                herramienta que alguien puede usar sin friccion.
+                como Thian Rolon. Desde 2017 trabajo en Grupo Inventiva S.A.C.I,
+                donde fui creciendo desde el desarrollo con Oracle Forms e
+                iReport hasta convertirme en Analista de sistemas, Desarrollador
+                Java y DBA.
               </p>
               <p>
-                Actualmente desarrollo proyectos propios alrededor de
-                automatizacion, plataformas operativas, integraciones locales y
-                aplicaciones moviles. Mis repos publicos muestran ese recorrido:
-                desde un sistema de asistencia hasta middleware para SIFEN,
-                civic tech, finanzas personales y herramientas para agentes de
-                IA.
+                Al incorporarme al equipo Java participe en la creacion de la
+                primera version web del ERP de la empresa y, desde entonces, en
+                distintas implementaciones y nuevas versiones del sistema web.
+                Mi experiencia combina desarrollo, base de datos, analisis,
+                implementacion y trato directo con usuarios y directivos.
               </p>
               <p>
-                Trabajo con Java, Spring Boot, Flutter, Dart, TypeScript y
-                PostgreSQL. Me interesa que el software sea mantenible, seguro y
-                lo bastante claro como para que el producto pueda crecer sin
-                volverse pesado.
+                En 2022 estuve a cargo del desarrollo e implementacion del SID,
+                Sistema Integrado DIMABEL. La implementacion fue exitosa y tuvo
+                un impacto institucional importante; en 2024 recibi un
+                reconocimiento por parte del director de DIGEMABEL por ese
+                trabajo.
               </p>
             </div>
           </section>
