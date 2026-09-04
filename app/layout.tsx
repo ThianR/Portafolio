@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Thian Rolon | Portafolio',
   description:
-    'Portafolio de Thian Rolon, nombre profesional de Cristhian Rolon: Analista de sistemas, Desarrollador Java y DBA con experiencia en ERP, Oracle Forms, iReport e implementaciones institucionales.',
+    'Portafolio de Thian Rolon, nombre profesional de Cristhian Rolon: Analista de Sistemas-Desarrollador FullStack con experiencia en ERP, Oracle Forms, iReport e implementaciones institucionales.',
 };
 
 export default function RootLayout({

@@ -19,7 +19,7 @@ const socialLinks = [
 const experience = [
   {
     period: '2019 - PRESENTE',
-    role: 'Analista de sistemas, Desarrollador Java y DBA',
+    role: 'Analista de Sistemas-Desarrollador FullStack',
     company: 'Grupo Inventiva S.A.C.I',
     description:
       'Participo en el desarrollo e implementacion de soluciones Java, nuevas versiones del ERP web de la empresa y proyectos para clientes con trato directo con usuarios, equipos tecnicos y directivos.',
@@ -158,7 +158,7 @@ export default function Home() {
               </h1>
             </a>
             <h2 className="mt-3 text-lg font-semibold leading-tight text-slate-200 sm:text-xl">
-              Analista de Sistemas · Desarrollador · DBA
+              Analista de Sistemas-Desarrollador FullStack
             </h2>
             <p className="mt-4 max-w-xs text-lg leading-7 text-slate-400">
               Construyo e implemento sistemas empresariales con impacto real.
@@ -214,25 +214,45 @@ export default function Home() {
             </div>
             <div className="space-y-5 text-base leading-7 text-slate-400 sm:text-lg sm:leading-8 lg:text-base lg:leading-7">
               <p>
-                Hola, soy Cristhian Rolon, aunque en mis proyectos vas a verme
-                como Thian Rolon. Desde 2017 trabajo en Grupo Inventiva S.A.C.I,
-                donde fui creciendo desde el desarrollo con Oracle Forms e
-                iReport hasta convertirme en Analista de sistemas, Desarrollador
-                Java y DBA.
+                Hola, soy Cristhian Rolon (conocido en mis proyectos como
+                Thian). Soy Licenciado en Analisis de Sistemas Informaticos y
+                desde 2017 formo parte de{' '}
+                <a
+                  href="https://py.linkedin.com/company/inventivapy"
+                  className="font-medium text-slate-200 transition hover:text-sky-300"
+                >
+                  Grupo Inventiva S.A.C.I.
+                </a>{' '}
+                Mi carrera ha sido de evolucion constante: comence trabajando
+                con Oracle Forms e iReport hasta consolidarme como Analista de
+                Sistemas, Desarrollador Java y DBA.
               </p>
               <p>
-                Al incorporarme al equipo Java participe en la creacion de la
-                primera version web del ERP de la empresa y, desde entonces, en
-                distintas implementaciones y nuevas versiones del sistema web.
-                Mi experiencia combina desarrollo, base de datos, analisis,
-                implementacion y trato directo con usuarios y directivos.
+                Mi experiencia abarca el ciclo completo del software. Al
+                integrarme al equipo Java, participe en la creacion de la
+                primera version web del ERP de la empresa. Desde entonces, he
+                trabajado en multiples implementaciones donde combino el
+                desarrollo eficiente, el diseno de bases de datos y la
+                comunicacion directa con usuarios y directivos.
               </p>
               <p>
-                En 2022 estuve a cargo del desarrollo e implementacion del SID,
-                Sistema Integrado DIMABEL. La implementacion fue exitosa y tuvo
-                un impacto institucional importante; en 2024 recibi un
-                reconocimiento por parte del director de DIGEMABEL por ese
-                trabajo.
+                En 2022 estuve a cargo del desarrollo e implementacion del
+                Sistema Integrado DIMABEL (SID). La implementacion fue exitosa y
+                tuvo un impacto institucional importante; llevandome a recibir
+                un reconocimiento oficial por parte del director de DIGEMABEL en
+                2024.
+              </p>
+              <p>
+                Me motiva investigar y generar soluciones originales a problemas
+                reales, algo que reflejo en los{' '}
+                <a
+                  href="https://github.com/ThianR?tab=repositories"
+                  className="font-medium text-slate-200 transition hover:text-sky-300"
+                >
+                  repositorios de proyectos personales de mi perfil
+                </a>
+                . Cuando no estoy escribiendo codigo, disfruto desconectar
+                haciendo rodadas con mi familia y amigos.
               </p>
             </div>
           </section>
