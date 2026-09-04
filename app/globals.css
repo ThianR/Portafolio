@@ -143,7 +143,7 @@ body {
 }
 
 .portfolio-shell {
-  max-width: 1280px;
+  max-width: 1200px;
 }
 
 .spotlight-glow {
@@ -269,59 +269,6 @@ body {
   border-color: rgb(125 161 217 / 40%);
 }
 
-.timeline-rail {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  padding-top: 6rem;
-}
-
-.timeline-line {
-  position: absolute;
-  top: 7rem;
-  bottom: 7rem;
-  left: 50%;
-  width: 1px;
-  overflow: hidden;
-  background: rgb(51 65 85 / 45%);
-}
-
-.timeline-line::after {
-  position: absolute;
-  inset: 0;
-  content: '';
-  background: linear-gradient(
-    180deg,
-    transparent,
-    rgb(125 161 217 / 78%) 18%,
-    rgb(56 189 248 / 42%) 50%,
-    transparent 82%
-  );
-  animation: timelineSweep 7s ease-in-out infinite;
-}
-
-.timeline-marks {
-  position: relative;
-  display: flex;
-  height: calc(100vh - 14rem);
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 1rem;
-  color: rgb(100 116 139 / 82%);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-}
-
-.timeline-marks span {
-  position: relative;
-  padding: 0.35rem 0;
-  background: var(--background);
-  writing-mode: vertical-rl;
-}
-
 .tech-pill {
   transition:
     background-color 180ms ease,
@@ -342,16 +289,6 @@ body {
   to {
     opacity: 1;
     transform: scaleX(1);
-  }
-}
-
-@keyframes timelineSweep {
-  0%,
-  100% {
-    transform: translateY(-65%);
-  }
-  50% {
-    transform: translateY(65%);
   }
 }
 
@@ -377,11 +314,11 @@ body {
 
 @media (min-width: 1024px) {
   .portfolio-shell {
-    grid-template-columns: 460px 80px minmax(0, 720px);
-    column-gap: 10px;
+    grid-template-columns: 560px 608px;
+    column-gap: 32px;
   }
 
   .portfolio-content {
-    width: 720px;
+    width: 608px;
   }
 }

@@ -10,8 +10,6 @@ const navItems = [
   ['PROJECTS', '#projects'],
 ];
 
-const timelineMarks = ['2017', '2019', '2022', '2024', 'Hoy'];
-
 const socialLinks = [
   {
     label: 'LinkedIn',
@@ -259,15 +257,6 @@ export default function Home() {
             ))}
           </div>
         </header>
-
-        <div className="timeline-rail hidden lg:block" aria-hidden="true">
-          <div className="timeline-line" />
-          <div className="timeline-marks">
-            {timelineMarks.map((mark) => (
-              <span key={mark}>{mark}</span>
-            ))}
-          </div>
-        </div>
 
         <div data-content className="portfolio-content pt-16 lg:py-24">
           <section
