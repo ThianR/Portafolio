@@ -2,7 +2,7 @@
 
 import type { CSSProperties } from 'react';
 import { useEffect, useState } from 'react';
-import { ArrowUpRight, Code2, GitBranch } from 'lucide-react';
+import { ArrowUp, ArrowUpRight, Code2, GitBranch } from 'lucide-react';
 
 const navItems = [
   ['ABOUT', '#about'],
@@ -11,10 +11,26 @@ const navItems = [
 ];
 
 const socialLinks = [
-  ['GH', 'GitHub', 'https://github.com/ThianR'],
-  ['PF', 'Portafolio', 'https://github.com/ThianR/Portafolio'],
-  ['ML', 'MunicipaLink', 'https://municipalink.vercel.app'],
-  ['PY', 'Paraguay', '#contact'],
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/thianrolon/',
+    Icon: LinkedInIcon,
+  },
+  {
+    label: 'GitHub',
+    href: 'https://github.com/ThianR',
+    Icon: GitHubIcon,
+  },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/thiansrolon/',
+    Icon: InstagramIcon,
+  },
+  {
+    label: 'Gmail',
+    href: 'mailto:gabrielrolonth@gmail.com',
+    Icon: MailIcon,
+  },
 ];
 
 const experience = [
@@ -101,6 +117,7 @@ const projects = [
 export default function Home() {
   const [activeSection, setActiveSection] = useState('about');
   const [spotlight, setSpotlight] = useState({ x: 0, y: 0 });
+  const [showProfileDock, setShowProfileDock] = useState(false);
 
   useEffect(() => {
     const sectionIds = ['about', 'experience', 'projects'];
@@ -148,6 +165,22 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const intro = document.getElementById('intro');
+    if (!intro) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowProfileDock(!entry.isIntersecting),
+      { rootMargin: '-96px 0px 0px 0px', threshold: 0.05 },
+    );
+
+    observer.observe(intro);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main
       className="relative min-h-screen overflow-hidden bg-background text-foreground"
@@ -167,6 +200,7 @@ export default function Home() {
         className="portfolio-shell relative z-10 mx-auto grid min-h-screen grid-cols-1 px-6 py-12 md:px-12 lg:px-0 lg:py-0"
       >
         <header
+          id="intro"
           data-left
           className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:justify-between lg:py-24"
         >
@@ -211,14 +245,14 @@ export default function Home() {
           </div>
 
           <div className="mt-10 flex items-center gap-5 lg:mt-0">
-            {socialLinks.map(([initials, label, href]) => (
+            {socialLinks.map(({ Icon, label, href }) => (
               <a
                 key={label}
                 href={href}
                 aria-label={label}
-                className="social-link grid h-6 w-6 place-items-center rounded-sm bg-slate-400/80 font-mono text-[10px] font-bold text-slate-950 transition sm:h-8 sm:w-8 sm:text-xs lg:h-6 lg:w-6"
+                className="social-link grid h-8 w-8 place-items-center text-slate-400 transition hover:text-sky-300 lg:h-6 lg:w-6"
               >
-                {initials}
+                <Icon />
               </a>
             ))}
           </div>
@@ -394,6 +428,103 @@ export default function Home() {
           </footer>
         </div>
       </div>
+
+      <div
+        className={`profile-dock fixed left-4 right-4 top-4 z-40 lg:hidden ${
+          showProfileDock ? 'is-visible' : ''
+        }`}
+      >
+        <a href="#intro" className="min-w-0">
+          <p className="truncate text-sm font-bold leading-tight text-slate-100">
+            Thian Rolon
+          </p>
+          <p className="truncate text-xs text-slate-400">
+            Analista de Sistemas-Desarrollador FullStack
+          </p>
+        </a>
+        <div className="ml-auto flex items-center gap-3">
+          {socialLinks.map(({ Icon, label, href }) => (
+            <a
+              key={label}
+              href={href}
+              aria-label={label}
+              className="text-slate-400 transition hover:text-sky-300"
+            >
+              <Icon />
+            </a>
+          ))}
+          <a
+            href="#intro"
+            aria-label="Volver al inicio"
+            className="grid h-8 w-8 place-items-center rounded-full border border-slate-700/80 bg-slate-900/80 text-slate-300 transition hover:-translate-y-0.5 hover:border-sky-300/50 hover:text-sky-300"
+          >
+            <ArrowUp size={15} />
+          </a>
+        </div>
+      </div>
     </main>
+  );
+}
+
+function GitHubIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-5 w-5"
+      fill="currentColor"
+    >
+      <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.19-3.37-1.19-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.04 1.53 1.04.9 1.52 2.35 1.08 2.92.82.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03A9.6 9.6 0 0 1 12 6.98c.85 0 1.7.11 2.5.34 1.9-1.3 2.74-1.03 2.74-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.86v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2Z" />
+    </svg>
+  );
+}
+
+function LinkedInIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-5 w-5"
+      fill="currentColor"
+    >
+      <path d="M4.98 3.5a2.5 2.5 0 1 1-.02 5 2.5 2.5 0 0 1 .02-5ZM3 9.75h4v10.76H3V9.75Zm6.25 0h3.83v1.47h.05c.53-.96 1.84-1.78 3.78-1.78 4.04 0 4.79 2.43 4.79 5.6v5.47h-4v-4.85c0-1.16-.02-2.65-1.77-2.65-1.78 0-2.05 1.27-2.05 2.57v4.93h-4V9.75Z" />
+    </svg>
+  );
+}
+
+function InstagramIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-5 w-5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-5 w-5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m3 7 9 6 9-6" />
+    </svg>
   );
 }
