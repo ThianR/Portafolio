@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Cristhian Rolon | Portafolio',
+  title: 'Thian Rolon | Portafolio',
   description:
-    'Portafolio de Cristhian Rolon: sistemas web, apps moviles e integraciones construidas con foco en producto y arquitectura.',
+    'Portafolio de Thian Rolon, nombre profesional de Cristhian Rolon: sistemas web, apps moviles e integraciones construidas con foco en producto y arquitectura.',
 };
 
 export default function RootLayout({
