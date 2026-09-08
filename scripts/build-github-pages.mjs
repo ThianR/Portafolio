@@ -6,6 +6,8 @@ const root = process.cwd();
 const outDir = path.join(root, 'out');
 const basePath = '/Portafolio';
 const cvFile = 'CV_Cristhian_Rolon.docx';
+const gmailComposeUrl =
+  'https://mail.google.com/mail/?view=cm&fs=1&to=gabrielrolonth@gmail.com';
 const icons = {
   linkedin:
     '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1-.02 5 2.5 2.5 0 0 1 .02-5ZM3 9.75h4v10.76H3V9.75Zm6.25 0h3.83v1.47h.05c.53-.96 1.84-1.78 3.78-1.78 4.04 0 4.79 2.43 4.79 5.6v5.47h-4v-4.85c0-1.16-.02-2.65-1.77-2.65-1.78 0-2.05 1.27-2.05 2.57v4.93h-4V9.75Z"/></svg>',
@@ -211,7 +213,7 @@ const html = `<!doctype html>
         <a href="https://www.linkedin.com/in/thianrolon/" aria-label="LinkedIn">${icons.linkedin}</a>
         <a href="https://github.com/ThianR" aria-label="GitHub">${icons.github}</a>
         <a href="https://www.instagram.com/thiansrolon/" aria-label="Instagram">${icons.instagram}</a>
-        <a href="mailto:gabrielrolonth@gmail.com" aria-label="Gmail">${icons.mail}</a>
+        <a href="${gmailComposeUrl}" aria-label="Gmail" target="_blank" rel="noreferrer">${icons.mail}</a>
       </div>
     </header>
     <main class="content">
@@ -253,7 +255,7 @@ const html = `<!doctype html>
       <a href="https://www.linkedin.com/in/thianrolon/" aria-label="LinkedIn">${icons.linkedin}</a>
       <a href="https://github.com/ThianR" aria-label="GitHub">${icons.github}</a>
       <a href="https://www.instagram.com/thiansrolon/" aria-label="Instagram">${icons.instagram}</a>
-      <a href="mailto:gabrielrolonth@gmail.com" aria-label="Gmail">${icons.mail}</a>
+      <a href="${gmailComposeUrl}" aria-label="Gmail" target="_blank" rel="noreferrer">${icons.mail}</a>
       <a class="top-button" href="#intro" aria-label="${data.es.labels[2]}">↑</a>
     </div>
   </div>

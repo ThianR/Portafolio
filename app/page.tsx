@@ -345,7 +345,7 @@ const socialLinks = [
   },
   {
     label: 'Gmail',
-    href: 'mailto:gabrielrolonth@gmail.com',
+    href: 'https://mail.google.com/mail/?view=cm&fs=1&to=gabrielrolonth@gmail.com',
     Icon: MailIcon,
   },
 ];
@@ -529,6 +529,8 @@ export default function Home() {
                 key={label}
                 href={href}
                 aria-label={label}
+                target="_blank"
+                rel="noreferrer"
                 className="social-link grid h-8 w-8 place-items-center text-slate-400 transition hover:text-sky-300 lg:h-6 lg:w-6"
               >
                 <Icon />
@@ -720,6 +722,8 @@ export default function Home() {
               key={label}
               href={href}
               aria-label={label}
+              target="_blank"
+              rel="noreferrer"
               className="text-slate-400 transition hover:text-sky-300"
             >
               <Icon />
