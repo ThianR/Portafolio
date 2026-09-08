@@ -227,6 +227,10 @@ body {
   transform: translate(2px, -2px);
 }
 
+.language-switch {
+  box-shadow: 0 18px 60px rgb(2 6 23 / 24%);
+}
+
 .resume-link,
 .resume-download {
   box-shadow: 0 0 0 0 rgb(125 161 217 / 0%);

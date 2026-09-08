@@ -5,13 +5,294 @@ import { useEffect, useState } from 'react';
 import { ArrowUp, ArrowUpRight, Code2, Download, GitBranch } from 'lucide-react';
 
 const navItems = [
-  ['ABOUT', '#about'],
-  ['EXPERIENCE', '#experience'],
-  ['PROJECTS', '#projects'],
-  ['CV', '#cv'],
+  ['about', '#about'],
+  ['experience', '#experience'],
+  ['projects', '#projects'],
+  ['cv', '#cv'],
 ];
 
 const cvHref = '/CV_Cristhian_Rolon.docx';
+type Language = 'es' | 'en';
+
+const translations = {
+  es: {
+    nav: {
+      about: 'ABOUT',
+      experience: 'EXPERIENCE',
+      projects: 'PROJECTS',
+      cv: 'CV',
+    },
+    hero: {
+      title: 'Thian Rolon',
+      role: 'Analista de Sistemas-Desarrollador FullStack',
+      summary: 'Construyo e implemento sistemas empresariales con impacto real.',
+      download: 'Descargar CV',
+    },
+    about: [
+      <>
+        Hola, soy Cristhian Rolon (conocido en mis proyectos como Thian). Soy
+        Licenciado en Analisis de Sistemas Informaticos y desde 2017 formo parte
+        de{' '}
+        <a
+          href="https://py.linkedin.com/company/inventivapy"
+          className="font-medium text-slate-200 transition hover:text-sky-300"
+        >
+          Grupo Inventiva S.A.C.I.
+        </a>{' '}
+        Mi carrera ha sido de evolucion constante: comence trabajando con Oracle
+        Forms e iReport hasta consolidarme como Analista de Sistemas,
+        Desarrollador Java y DBA.
+      </>,
+      'Mi experiencia abarca el ciclo completo del software. Al integrarme al equipo Java, participe en la creacion de la primera version web del ERP de la empresa. Desde entonces, he trabajado en multiples implementaciones donde combino el desarrollo eficiente, el diseno de bases de datos y la comunicacion directa con usuarios y directivos.',
+      'En 2022 estuve a cargo del desarrollo e implementacion del Sistema Integrado DIMABEL (SID). La implementacion fue exitosa y tuvo un impacto institucional importante; llevandome a recibir un reconocimiento oficial por parte del director de DIGEMABEL en 2024.',
+      <>
+        Me motiva investigar y generar soluciones originales a problemas reales,
+        algo que reflejo en los{' '}
+        <a
+          href="https://github.com/ThianR?tab=repositories"
+          className="font-medium text-slate-200 transition hover:text-sky-300"
+        >
+          repositorios de proyectos personales de mi perfil
+        </a>
+        . Cuando no estoy escribiendo codigo, disfruto desconectar haciendo
+        rodadas con mi familia y amigos.
+      </>,
+    ],
+    experience: [
+      {
+        period: '2019 - PRESENTE',
+        role: 'Analista de Sistemas-Desarrollador FullStack',
+        company: 'Grupo Inventiva S.A.C.I',
+        description:
+          'Participo en el desarrollo e implementacion de soluciones Java, nuevas versiones del ERP web de la empresa y proyectos para clientes con trato directo con usuarios, equipos tecnicos y directivos.',
+        stack: ['Java', 'ERP Web', 'DBA', 'Implementacion'],
+      },
+      {
+        period: '2022',
+        role: 'Responsable de desarrollo e implementacion',
+        company: 'SID - Sistema Integrado DIMABEL',
+        description:
+          'Lidere el desarrollo e implementacion del sistema SID. La puesta en marcha fue exitosa y acompano un cambio institucional de alto impacto: DIMABEL paso a convertirse en DIGEMABEL, Direccion General de Material Belico.',
+        stack: ['Java', 'Sistemas publicos', 'Implementacion', 'Usuarios clave'],
+      },
+      {
+        period: '2024',
+        role: 'Reconocimiento institucional',
+        company: 'DIGEMABEL',
+        description:
+          'Recibi un reconocimiento por parte del director de DIGEMABEL por el trabajo realizado y el impacto del sistema implementado.',
+        stack: ['Reconocimiento', 'Impacto institucional'],
+      },
+      {
+        period: '2017 - 2019',
+        role: 'Desarrollador Oracle Forms e iReport',
+        company: 'Grupo Inventiva S.A.C.I',
+        description:
+          'Inicie mi carrera desarrollando y manteniendo soluciones con Oracle Forms e iReport, trabajando sobre procesos empresariales y reportes operativos antes de incorporarme al equipo Java.',
+        stack: ['Oracle Forms', 'iReport', 'Reportes', 'Procesos'],
+      },
+    ],
+    projects: [
+      {
+        name: 'Horus',
+        description:
+          'Sistema de asistencia para administrar empleados, estructura organizacional, turnos fijos y flexibles, solicitudes del empleado y licenciamiento propio.',
+        stack: ['HTML', 'RRHH', 'Seguridad'],
+        href: 'https://github.com/ThianR/Horus',
+      },
+      {
+        name: 'Portico',
+        description:
+          'Middleware modular en Spring Boot y Java para integracion con SIFEN: XML, firma digital, KUDE y comunicacion API para facturacion electronica.',
+        stack: ['Java', 'Spring Boot', 'SIFEN'],
+        href: 'https://github.com/ThianR/Portico',
+      },
+      {
+        name: 'BikerSquad',
+        description:
+          'Walkie-talkie P2P en Flutter para grupos de motociclismo y ciclismo, con Wi-Fi local, QR, AES-256, Opus, VAD y AEC.',
+        stack: ['Flutter', 'Dart', 'Audio P2P'],
+        href: 'https://github.com/ThianR/BikerSquad',
+      },
+      {
+        name: 'MunicipaLink',
+        description:
+          'Plataforma de participacion ciudadana para reportar incidencias urbanas con geolocalizacion, seguimiento y gamificacion.',
+        stack: ['Web', 'PLpgSQL', 'Civic tech'],
+        href: 'https://github.com/ThianR/MunicipaLink',
+        live: 'https://municipalink.vercel.app',
+      },
+      {
+        name: 'ViyuFlow',
+        description:
+          'App movil offline-first de finanzas personales para ingresos, presupuestos, gastos, multiples divisas y registro por voz.',
+        stack: ['Dart', 'Mobile', 'Offline-first'],
+        href: 'https://github.com/ThianR/ViyuFlow',
+      },
+      {
+        name: 'TokenCal',
+        description:
+          'Visualizador local de contexto para desarrolladores y agentes de IA: tokens, profundidad de arquitectura, deuda tecnica y costos.',
+        stack: ['TypeScript', 'IA tooling', 'Analisis'],
+        href: 'https://github.com/ThianR/TokenCal',
+      },
+    ],
+    cv: {
+      label: 'Resume',
+      title: 'Curriculum Vitae',
+      owner: 'Cristhian Rolon',
+      description:
+        'Version descargable de mi perfil profesional como Analista de Sistemas-Desarrollador FullStack, con experiencia Java, bases de datos e implementacion de sistemas empresariales.',
+      download: 'Descargar CV',
+    },
+    footer:
+      'Disenado y construido por Thian Rolon. Inspirado en portafolios oscuros, editoriales y orientados a proyectos. El codigo vive en la rama main del repositorio.',
+    labels: {
+      openDemo: 'Abrir demo de',
+      openRepo: 'Abrir repositorio de',
+      backTop: 'Volver al inicio',
+      language: 'Cambiar idioma',
+    },
+  },
+  en: {
+    nav: {
+      about: 'ABOUT',
+      experience: 'EXPERIENCE',
+      projects: 'PROJECTS',
+      cv: 'CV',
+    },
+    hero: {
+      title: 'Thian Rolon',
+      role: 'Systems Analyst-FullStack Developer',
+      summary: 'I build and implement business systems with real-world impact.',
+      download: 'Download CV',
+    },
+    about: [
+      <>
+        Hi, I am Cristhian Rolon (known in my projects as Thian). I hold a
+        degree in Computer Systems Analysis and since 2017 I have been part of{' '}
+        <a
+          href="https://py.linkedin.com/company/inventivapy"
+          className="font-medium text-slate-200 transition hover:text-sky-300"
+        >
+          Grupo Inventiva S.A.C.I.
+        </a>{' '}
+        My career has been a constant evolution: I started working with Oracle
+        Forms and iReport and grew into a Systems Analyst, Java Developer and
+        DBA.
+      </>,
+      'My experience covers the full software lifecycle. After joining the Java team, I participated in building the first web version of the company ERP. Since then, I have worked on multiple implementations combining efficient development, database design and direct communication with users and executives.',
+      'In 2022 I was responsible for the development and implementation of SID, the Integrated DIMABEL System. The implementation was successful and had meaningful institutional impact, which led me to receive official recognition from the director of DIGEMABEL in 2024.',
+      <>
+        I am motivated by research and by creating original solutions to real
+        problems, something reflected in the{' '}
+        <a
+          href="https://github.com/ThianR?tab=repositories"
+          className="font-medium text-slate-200 transition hover:text-sky-300"
+        >
+          personal project repositories on my profile
+        </a>
+        . When I am not writing code, I enjoy disconnecting on rides with my
+        family and friends.
+      </>,
+    ],
+    experience: [
+      {
+        period: '2019 - PRESENT',
+        role: 'Systems Analyst-FullStack Developer',
+        company: 'Grupo Inventiva S.A.C.I',
+        description:
+          'I work on Java solutions, new versions of the company ERP web platform and client projects, collaborating directly with users, technical teams and executives.',
+        stack: ['Java', 'ERP Web', 'DBA', 'Implementation'],
+      },
+      {
+        period: '2022',
+        role: 'Development and implementation lead',
+        company: 'SID - Integrated DIMABEL System',
+        description:
+          'I led the development and implementation of SID. The launch was successful and supported a high-impact institutional change: DIMABEL became DIGEMABEL, the General Directorate of War Material.',
+        stack: ['Java', 'Public systems', 'Implementation', 'Key users'],
+      },
+      {
+        period: '2024',
+        role: 'Institutional recognition',
+        company: 'DIGEMABEL',
+        description:
+          'I received recognition from the director of DIGEMABEL for the work delivered and the impact of the implemented system.',
+        stack: ['Recognition', 'Institutional impact'],
+      },
+      {
+        period: '2017 - 2019',
+        role: 'Oracle Forms and iReport Developer',
+        company: 'Grupo Inventiva S.A.C.I',
+        description:
+          'I began my career developing and maintaining Oracle Forms and iReport solutions, working on business processes and operational reports before joining the Java team.',
+        stack: ['Oracle Forms', 'iReport', 'Reports', 'Processes'],
+      },
+    ],
+    projects: [
+      {
+        name: 'Horus',
+        description:
+          'Attendance system for managing employees, organizational structure, fixed and flexible shifts, employee requests and proprietary licensing.',
+        stack: ['HTML', 'HR', 'Security'],
+        href: 'https://github.com/ThianR/Horus',
+      },
+      {
+        name: 'Portico',
+        description:
+          'Modular Spring Boot and Java middleware for SIFEN integration: XML, digital signature, KUDE and API communication for electronic invoicing.',
+        stack: ['Java', 'Spring Boot', 'SIFEN'],
+        href: 'https://github.com/ThianR/Portico',
+      },
+      {
+        name: 'BikerSquad',
+        description:
+          'P2P walkie-talkie in Flutter for motorcycle and cycling groups, with local Wi-Fi, QR, AES-256, Opus, VAD and AEC.',
+        stack: ['Flutter', 'Dart', 'P2P audio'],
+        href: 'https://github.com/ThianR/BikerSquad',
+      },
+      {
+        name: 'MunicipaLink',
+        description:
+          'Citizen participation platform for reporting urban issues with geolocation, tracking and gamification.',
+        stack: ['Web', 'PLpgSQL', 'Civic tech'],
+        href: 'https://github.com/ThianR/MunicipaLink',
+        live: 'https://municipalink.vercel.app',
+      },
+      {
+        name: 'ViyuFlow',
+        description:
+          'Offline-first mobile personal finance app for income, budgets, expenses, multiple currencies and voice-based records.',
+        stack: ['Dart', 'Mobile', 'Offline-first'],
+        href: 'https://github.com/ThianR/ViyuFlow',
+      },
+      {
+        name: 'TokenCal',
+        description:
+          'Local context visualizer for developers and AI agents: tokens, architecture depth, technical debt and costs.',
+        stack: ['TypeScript', 'AI tooling', 'Analysis'],
+        href: 'https://github.com/ThianR/TokenCal',
+      },
+    ],
+    cv: {
+      label: 'Resume',
+      title: 'Curriculum Vitae',
+      owner: 'Cristhian Rolon',
+      description:
+        'Downloadable version of my professional profile as a Systems Analyst-FullStack Developer, with Java, database and business systems implementation experience.',
+      download: 'Download CV',
+    },
+    footer:
+      'Designed and built by Thian Rolon. Inspired by dark, editorial and project-focused portfolios. The code lives on the repository main branch.',
+    labels: {
+      openDemo: 'Open demo for',
+      openRepo: 'Open repository for',
+      backTop: 'Back to top',
+      language: 'Change language',
+    },
+  },
+};
 
 const socialLinks = [
   {
@@ -36,91 +317,25 @@ const socialLinks = [
   },
 ];
 
-const experience = [
-  {
-    period: '2019 - PRESENTE',
-    role: 'Analista de Sistemas-Desarrollador FullStack',
-    company: 'Grupo Inventiva S.A.C.I',
-    description:
-      'Participo en el desarrollo e implementacion de soluciones Java, nuevas versiones del ERP web de la empresa y proyectos para clientes con trato directo con usuarios, equipos tecnicos y directivos.',
-    stack: ['Java', 'ERP Web', 'DBA', 'Implementacion'],
-  },
-  {
-    period: '2022',
-    role: 'Responsable de desarrollo e implementacion',
-    company: 'SID - Sistema Integrado DIMABEL',
-    description:
-      'Lidere el desarrollo e implementacion del sistema SID. La puesta en marcha fue exitosa y acompano un cambio institucional de alto impacto: DIMABEL paso a convertirse en DIGEMABEL, Direccion General de Material Belico.',
-    stack: ['Java', 'Sistemas publicos', 'Implementacion', 'Usuarios clave'],
-  },
-  {
-    period: '2024',
-    role: 'Reconocimiento institucional',
-    company: 'DIGEMABEL',
-    description:
-      'Recibi un reconocimiento por parte del director de DIGEMABEL por el trabajo realizado y el impacto del sistema implementado.',
-    stack: ['Reconocimiento', 'Impacto institucional'],
-  },
-  {
-    period: '2017 - 2019',
-    role: 'Desarrollador Oracle Forms e iReport',
-    company: 'Grupo Inventiva S.A.C.I',
-    description:
-      'Inicie mi carrera desarrollando y manteniendo soluciones con Oracle Forms e iReport, trabajando sobre procesos empresariales y reportes operativos antes de incorporarme al equipo Java.',
-    stack: ['Oracle Forms', 'iReport', 'Reportes', 'Procesos'],
-  },
-];
-
-const projects = [
-  {
-    name: 'Horus',
-    description:
-      'Sistema de asistencia para administrar empleados, estructura organizacional, turnos fijos y flexibles, solicitudes del empleado y licenciamiento propio.',
-    stack: ['HTML', 'RRHH', 'Seguridad'],
-    href: 'https://github.com/ThianR/Horus',
-  },
-  {
-    name: 'Portico',
-    description:
-      'Middleware modular en Spring Boot y Java para integracion con SIFEN: XML, firma digital, KUDE y comunicacion API para facturacion electronica.',
-    stack: ['Java', 'Spring Boot', 'SIFEN'],
-    href: 'https://github.com/ThianR/Portico',
-  },
-  {
-    name: 'BikerSquad',
-    description:
-      'Walkie-talkie P2P en Flutter para grupos de motociclismo y ciclismo, con Wi-Fi local, QR, AES-256, Opus, VAD y AEC.',
-    stack: ['Flutter', 'Dart', 'Audio P2P'],
-    href: 'https://github.com/ThianR/BikerSquad',
-  },
-  {
-    name: 'MunicipaLink',
-    description:
-      'Plataforma de participacion ciudadana para reportar incidencias urbanas con geolocalizacion, seguimiento y gamificacion.',
-    stack: ['Web', 'PLpgSQL', 'Civic tech'],
-    href: 'https://github.com/ThianR/MunicipaLink',
-    live: 'https://municipalink.vercel.app',
-  },
-  {
-    name: 'ViyuFlow',
-    description:
-      'App movil offline-first de finanzas personales para ingresos, presupuestos, gastos, multiples divisas y registro por voz.',
-    stack: ['Dart', 'Mobile', 'Offline-first'],
-    href: 'https://github.com/ThianR/ViyuFlow',
-  },
-  {
-    name: 'TokenCal',
-    description:
-      'Visualizador local de contexto para desarrolladores y agentes de IA: tokens, profundidad de arquitectura, deuda tecnica y costos.',
-    stack: ['TypeScript', 'IA tooling', 'Analisis'],
-    href: 'https://github.com/ThianR/TokenCal',
-  },
-];
-
 export default function Home() {
+  const [language, setLanguage] = useState<Language>('es');
   const [activeSection, setActiveSection] = useState('about');
   const [spotlight, setSpotlight] = useState({ x: 0, y: 0 });
   const [showProfileDock, setShowProfileDock] = useState(false);
+  const t = translations[language];
+
+  useEffect(() => {
+    const savedLanguage = window.localStorage.getItem('portfolio-language');
+
+    if (savedLanguage === 'en' || savedLanguage === 'es') {
+      setLanguage(savedLanguage);
+    }
+  }, []);
+
+  const updateLanguage = (nextLanguage: Language) => {
+    setLanguage(nextLanguage);
+    window.localStorage.setItem('portfolio-language', nextLanguage);
+  };
 
   useEffect(() => {
     const sectionIds = ['about', 'experience', 'projects', 'cv'];
@@ -199,6 +414,26 @@ export default function Home() {
     >
       <div className="pointer-events-none fixed inset-0 z-0 hidden spotlight-glow lg:block" />
       <div
+        className="language-switch fixed right-4 top-4 z-50 inline-flex rounded-full border border-slate-700/80 bg-slate-900/75 p-1 text-xs font-bold uppercase tracking-[0.12em] text-slate-400 backdrop-blur"
+        aria-label={t.labels.language}
+      >
+        {(['es', 'en'] as const).map((option) => (
+          <button
+            key={option}
+            type="button"
+            onClick={() => updateLanguage(option)}
+            className={`rounded-full px-3 py-2 transition ${
+              language === option
+                ? 'bg-slate-200 text-slate-950'
+                : 'hover:text-sky-300'
+            }`}
+            aria-pressed={language === option}
+          >
+            {option}
+          </button>
+        ))}
+      </div>
+      <div
         data-shell
         className="portfolio-shell relative z-10 mx-auto grid min-h-screen grid-cols-1 px-6 py-12 md:px-12 lg:px-0 lg:py-0"
       >
@@ -210,27 +445,27 @@ export default function Home() {
           <div>
             <a href="#about" className="inline-block">
               <h1 className="text-4xl font-bold leading-[1.1] tracking-normal text-slate-100 sm:text-5xl">
-                Thian Rolon
+                {t.hero.title}
               </h1>
             </a>
             <h2 className="mt-3 text-lg font-semibold leading-tight text-slate-200 sm:text-xl">
-              Analista de Sistemas-Desarrollador FullStack
+              {t.hero.role}
             </h2>
             <p className="mt-4 max-w-xs text-lg leading-7 text-slate-400">
-              Construyo e implemento sistemas empresariales con impacto real.
+              {t.hero.summary}
             </p>
             <a
               href={cvHref}
               download="CV_Cristhian_Rolon.docx"
               className="resume-link mt-8 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.14em] text-slate-200 transition hover:text-sky-300"
             >
-              Descargar CV
+              {t.hero.download}
               <Download size={16} />
             </a>
 
             <nav className="mt-16 hidden lg:block" aria-label="Principal">
               <ul>
-                {navItems.map(([label, href]) => (
+                {navItems.map(([id, href]) => (
                   <li key={href}>
                     <a
                       href={href}
@@ -247,7 +482,7 @@ export default function Home() {
                             : 'w-8 bg-slate-600 group-hover:w-16 group-hover:bg-slate-200'
                         }`}
                       />
-                      <span>{label}</span>
+                      <span>{t.nav[id as keyof typeof t.nav]}</span>
                     </a>
                   </li>
                 ))}
@@ -276,51 +511,13 @@ export default function Home() {
           >
             <div className="sticky top-0 z-10 -mx-6 mb-4 bg-background/85 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:hidden">
               <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-slate-200">
-                About
+                {t.nav.about}
               </h2>
             </div>
             <div className="space-y-5 text-base leading-7 text-slate-400 sm:text-lg sm:leading-8 lg:text-base lg:leading-7">
-              <p>
-                Hola, soy Cristhian Rolon (conocido en mis proyectos como
-                Thian). Soy Licenciado en Analisis de Sistemas Informaticos y
-                desde 2017 formo parte de{' '}
-                <a
-                  href="https://py.linkedin.com/company/inventivapy"
-                  className="font-medium text-slate-200 transition hover:text-sky-300"
-                >
-                  Grupo Inventiva S.A.C.I.
-                </a>{' '}
-                Mi carrera ha sido de evolucion constante: comence trabajando
-                con Oracle Forms e iReport hasta consolidarme como Analista de
-                Sistemas, Desarrollador Java y DBA.
-              </p>
-              <p>
-                Mi experiencia abarca el ciclo completo del software. Al
-                integrarme al equipo Java, participe en la creacion de la
-                primera version web del ERP de la empresa. Desde entonces, he
-                trabajado en multiples implementaciones donde combino el
-                desarrollo eficiente, el diseno de bases de datos y la
-                comunicacion directa con usuarios y directivos.
-              </p>
-              <p>
-                En 2022 estuve a cargo del desarrollo e implementacion del
-                Sistema Integrado DIMABEL (SID). La implementacion fue exitosa y
-                tuvo un impacto institucional importante; llevandome a recibir
-                un reconocimiento oficial por parte del director de DIGEMABEL en
-                2024.
-              </p>
-              <p>
-                Me motiva investigar y generar soluciones originales a problemas
-                reales, algo que reflejo en los{' '}
-                <a
-                  href="https://github.com/ThianR?tab=repositories"
-                  className="font-medium text-slate-200 transition hover:text-sky-300"
-                >
-                  repositorios de proyectos personales de mi perfil
-                </a>
-                . Cuando no estoy escribiendo codigo, disfruto desconectar
-                haciendo rodadas con mi familia y amigos.
-              </p>
+              {t.about.map((paragraph, index) => (
+                <p key={`${language}-about-${index}`}>{paragraph}</p>
+              ))}
             </div>
           </section>
 
@@ -332,11 +529,11 @@ export default function Home() {
           >
             <div className="sticky top-0 z-10 -mx-6 mb-4 bg-background/85 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:hidden">
               <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-slate-200">
-                Experience
+                {t.nav.experience}
               </h2>
             </div>
             <div className="space-y-4">
-              {experience.map((item) => (
+              {t.experience.map((item) => (
                 <article
                   key={`${item.period}-${item.role}`}
                   className="portfolio-row group grid gap-4 rounded-md p-0 transition sm:grid-cols-[9rem_1fr] sm:gap-8 lg:-mx-6 lg:p-6"
@@ -377,11 +574,11 @@ export default function Home() {
           >
             <div className="sticky top-0 z-10 -mx-6 mb-4 bg-background/85 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:hidden">
               <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-slate-200">
-                Projects
+                {t.nav.projects}
               </h2>
             </div>
             <div className="space-y-4">
-              {projects.map((project) => (
+              {t.projects.map((project) => (
                 <article
                   key={project.name}
                   className="portfolio-row group grid gap-5 rounded-md transition sm:grid-cols-[9rem_1fr] sm:gap-8 lg:-mx-6 lg:p-6"
@@ -398,7 +595,7 @@ export default function Home() {
                         {project.live ? (
                           <a
                             href={project.live}
-                            aria-label={`Abrir demo de ${project.name}`}
+                            aria-label={`${t.labels.openDemo} ${project.name}`}
                             className="project-link transition hover:text-sky-300"
                           >
                             <ArrowUpRight size={18} />
@@ -406,7 +603,7 @@ export default function Home() {
                         ) : null}
                         <a
                           href={project.href}
-                          aria-label={`Abrir repositorio de ${project.name}`}
+                          aria-label={`${t.labels.openRepo} ${project.name}`}
                           className="project-link transition hover:text-sky-300"
                         >
                           <GitBranch size={18} />
@@ -442,25 +639,23 @@ export default function Home() {
             </div>
             <article className="portfolio-row group grid gap-4 rounded-md p-0 transition sm:grid-cols-[9rem_1fr] sm:gap-8 lg:-mx-6 lg:p-6">
               <p className="pt-1 font-mono text-sm font-semibold uppercase tracking-wide text-slate-500">
-                Resume
+                {t.cv.label}
               </p>
               <div>
                 <h3 className="text-lg font-semibold leading-snug text-slate-100">
-                  Curriculum Vitae
+                  {t.cv.title}
                   <span className="text-slate-500"> · </span>
-                  <span className="text-slate-300">Cristhian Rolon</span>
+                  <span className="text-slate-300">{t.cv.owner}</span>
                 </h3>
                 <p className="mt-3 text-base leading-7 text-slate-400">
-                  Version descargable de mi perfil profesional como Analista de
-                  Sistemas-Desarrollador FullStack, con experiencia Java, bases
-                  de datos e implementacion de sistemas empresariales.
+                  {t.cv.description}
                 </p>
                 <a
                   href={cvHref}
                   download="CV_Cristhian_Rolon.docx"
                   className="resume-download mt-6 inline-flex items-center gap-3 rounded border border-slate-700/80 px-4 py-3 text-sm font-bold uppercase tracking-[0.14em] text-slate-200 transition hover:border-sky-300/50 hover:text-sky-300"
                 >
-                  Descargar CV
+                  {t.cv.download}
                   <Download size={17} />
                 </a>
               </div>
@@ -468,9 +663,7 @@ export default function Home() {
           </section>
 
           <footer className="mt-28 max-w-md pb-20 text-sm leading-6 text-slate-500">
-            Disenado y construido por Thian Rolon. Inspirado en portafolios
-            oscuros, editoriales y orientados a proyectos. El codigo vive en la
-            rama main del repositorio.
+            {t.footer}
           </footer>
         </div>
       </div>
@@ -482,10 +675,10 @@ export default function Home() {
       >
         <a href="#intro" className="min-w-0">
           <p className="truncate text-sm font-bold leading-tight text-slate-100">
-            Thian Rolon
+            {t.hero.title}
           </p>
           <p className="truncate text-xs text-slate-400">
-            Analista de Sistemas-Desarrollador FullStack
+            {t.hero.role}
           </p>
         </a>
         <div className="ml-auto flex items-center gap-3">
@@ -501,7 +694,7 @@ export default function Home() {
           ))}
           <a
             href="#intro"
-            aria-label="Volver al inicio"
+            aria-label={t.labels.backTop}
             className="grid h-8 w-8 place-items-center rounded-full border border-slate-700/80 bg-slate-900/80 text-slate-300 transition hover:-translate-y-0.5 hover:border-sky-300/50 hover:text-sky-300"
           >
             <ArrowUp size={15} />
