@@ -6,6 +6,16 @@ const root = process.cwd();
 const outDir = path.join(root, 'out');
 const basePath = '/Portafolio';
 const cvFile = 'CV_Cristhian_Rolon.docx';
+const icons = {
+  linkedin:
+    '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1-.02 5 2.5 2.5 0 0 1 .02-5ZM3 9.75h4v10.76H3V9.75Zm6.25 0h3.83v1.47h.05c.53-.96 1.84-1.78 3.78-1.78 4.04 0 4.79 2.43 4.79 5.6v5.47h-4v-4.85c0-1.16-.02-2.65-1.77-2.65-1.78 0-2.05 1.27-2.05 2.57v4.93h-4V9.75Z"/></svg>',
+  github:
+    '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.19-3.37-1.19-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.04 1.53 1.04.9 1.52 2.35 1.08 2.92.82.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03A9.6 9.6 0 0 1 12 6.98c.85 0 1.7.11 2.5.34 1.9-1.3 2.74-1.03 2.74-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.86v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>',
+  instagram:
+    '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>',
+  mail:
+    '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
+};
 
 const data = {
   es: {
@@ -158,9 +168,9 @@ const html = `<!doctype html>
     .language-switch{position:fixed;right:1rem;top:1rem;z-index:50;display:inline-flex;border:1px solid rgba(51,65,85,.8);border-radius:999px;background:rgba(15,23,42,.75);padding:.25rem;box-shadow:0 18px 60px rgba(2,6,23,.24);backdrop-filter:blur(18px)}
     .language-switch button{border:0;border-radius:999px;background:transparent;color:var(--muted);padding:.55rem .75rem;font-size:.75rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}.language-switch button.active{background:#e2e8f0;color:#020617}.language-switch button:not(.active):hover{color:var(--sky)}
     .shell{position:relative;z-index:1;display:grid;grid-template-columns:1fr;max-width:1200px;min-height:100vh;margin:0 auto;padding:3rem 1.5rem}.intro{padding-top:1rem}.intro h1{margin:0;color:#f1f5f9;font-size:clamp(2.4rem,7vw,3.1rem);line-height:1.1}.intro h2{margin:.75rem 0 0;color:#e2e8f0;font-size:1.25rem}.intro p{max-width:20rem;margin:1rem 0 0;color:var(--muted);font-size:1.1rem;line-height:1.65}
-    .resume-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:2rem;font-size:.85rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.resume-link:hover svg,.resume-download:hover svg{transform:translateY(2px)}svg{transition:transform .18s ease}
+    .resume-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:2rem;font-size:.85rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.resume-link:hover svg,.resume-download:hover svg{transform:translateY(2px)}svg{width:1.25rem;height:1.25rem;transition:transform .18s ease}.socials svg:not([fill="none"]),.dock-actions svg:not([fill="none"]){fill:currentColor}
     nav{display:none;margin-top:4rem}nav a{display:flex;height:2.5rem;align-items:center;color:var(--soft);font-size:.75rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}nav span:first-child{width:2rem;height:1px;margin-right:1rem;background:#475569;transition:all .18s ease}nav a.active,nav a:hover{color:#e2e8f0}nav a.active span:first-child,nav a:hover span:first-child{width:4rem;background:#e2e8f0}
-    .socials{display:flex;gap:1.25rem;margin-top:3rem}.socials a{color:var(--muted)}.socials a:hover{transform:translateY(-4px);filter:drop-shadow(0 0 18px rgba(125,161,217,.25))}
+    .socials{display:flex;gap:1.25rem;margin-top:3rem}.socials a{display:grid;width:2rem;height:2rem;place-items:center;color:var(--muted)}.socials a:hover{transform:translateY(-4px);filter:drop-shadow(0 0 18px rgba(125,161,217,.25))}
     main.content{padding-top:4rem}.mobile-title{position:sticky;top:0;z-index:10;margin:0 -1.5rem 1rem;padding:1.25rem 1.5rem;background:rgba(15,23,42,.86);backdrop-filter:blur(18px)}.mobile-title h2{margin:0;color:#e2e8f0;font-size:.85rem;letter-spacing:.18em}
     section{scroll-margin-top:6rem}.about p,.portfolio-row p{color:var(--muted);font-size:1rem;line-height:1.75}.about p{margin:0 0 1.25rem}.about a{font-weight:600}
     .section-divider{height:1px;margin:7rem 0 0;background:linear-gradient(90deg,transparent,rgba(148,163,184,.18) 14%,rgba(125,161,217,.45) 50%,rgba(148,163,184,.14) 86%,transparent);animation:dividerGlow linear both;animation-timeline:view();animation-range:entry 0% cover 45%}
@@ -171,7 +181,7 @@ const html = `<!doctype html>
     footer{max-width:28rem;margin-top:7rem;padding-bottom:5rem;color:#64748b;font-size:.9rem;line-height:1.7}.dock{position:fixed;left:1rem;right:1rem;top:1rem;z-index:40;display:flex;align-items:center;gap:1rem;border:1px solid rgba(51,65,85,.72);border-radius:.75rem;background:var(--panel);box-shadow:0 18px 60px rgba(2,6,23,.28);padding:.75rem .9rem;opacity:0;pointer-events:none;transform:translateY(-14px);backdrop-filter:blur(18px);transition:opacity .22s ease,transform .22s ease}.dock.visible{opacity:1;pointer-events:auto;transform:translateY(0)}.dock p{margin:0}.dock-title{font-size:.88rem;font-weight:800;color:#f1f5f9}.dock-role{max-width:16rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted);font-size:.75rem}.dock-actions{display:flex;align-items:center;gap:.75rem;margin-left:auto}.top-button{display:grid;width:2rem;height:2rem;place-items:center;border:1px solid rgba(51,65,85,.8);border-radius:999px;background:rgba(15,23,42,.8)}
     @keyframes dividerGlow{from{opacity:0;transform:scaleX(.25)}to{opacity:1;transform:scaleX(1)}}
     @media (min-width:640px){.portfolio-row{grid-template-columns:9rem 1fr;gap:2rem}.project-thumb{display:flex}}
-    @media (min-width:1024px){.shell{grid-template-columns:560px 608px;column-gap:32px;padding:0}.intro{position:sticky;top:0;display:flex;height:100vh;flex-direction:column;justify-content:space-between;padding:6rem 0}.content{padding:6rem 0}.mobile-title{display:none}.socials{margin-top:0}.dock{display:none}.portfolio-row{margin-left:-1.5rem;margin-right:-1.5rem;padding:1.5rem}}
+    @media (min-width:1024px){.shell{grid-template-columns:560px 608px;column-gap:32px;padding:0}.intro{position:sticky;top:0;display:flex;height:100vh;flex-direction:column;justify-content:space-between;padding:6rem 0}.content{padding:6rem 0}nav{display:block}.mobile-title{display:none}.socials{margin-top:0}.dock{display:none}.portfolio-row{margin-left:-1.5rem;margin-right:-1.5rem;padding:1.5rem}}
   </style>
 </head>
 <body>
@@ -194,10 +204,10 @@ const html = `<!doctype html>
         </nav>
       </div>
       <div class="socials">
-        <a href="https://www.linkedin.com/in/thianrolon/" aria-label="LinkedIn">in</a>
-        <a href="https://github.com/ThianR" aria-label="GitHub">GH</a>
-        <a href="https://www.instagram.com/thiansrolon/" aria-label="Instagram">IG</a>
-        <a href="mailto:gabrielrolonth@gmail.com" aria-label="Gmail">@</a>
+        <a href="https://www.linkedin.com/in/thianrolon/" aria-label="LinkedIn">${icons.linkedin}</a>
+        <a href="https://github.com/ThianR" aria-label="GitHub">${icons.github}</a>
+        <a href="https://www.instagram.com/thiansrolon/" aria-label="Instagram">${icons.instagram}</a>
+        <a href="mailto:gabrielrolonth@gmail.com" aria-label="Gmail">${icons.mail}</a>
       </div>
     </header>
     <main class="content">
@@ -236,10 +246,10 @@ const html = `<!doctype html>
       <p class="dock-role" data-text="role">${data.es.role}</p>
     </a>
     <div class="dock-actions">
-      <a href="https://www.linkedin.com/in/thianrolon/" aria-label="LinkedIn">in</a>
-      <a href="https://github.com/ThianR" aria-label="GitHub">GH</a>
-      <a href="https://www.instagram.com/thiansrolon/" aria-label="Instagram">IG</a>
-      <a href="mailto:gabrielrolonth@gmail.com" aria-label="Gmail">@</a>
+      <a href="https://www.linkedin.com/in/thianrolon/" aria-label="LinkedIn">${icons.linkedin}</a>
+      <a href="https://github.com/ThianR" aria-label="GitHub">${icons.github}</a>
+      <a href="https://www.instagram.com/thiansrolon/" aria-label="Instagram">${icons.instagram}</a>
+      <a href="mailto:gabrielrolonth@gmail.com" aria-label="Gmail">${icons.mail}</a>
       <a class="top-button" href="#intro" aria-label="${data.es.labels[2]}">↑</a>
     </div>
   </div>
