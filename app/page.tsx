@@ -11,7 +11,8 @@ const navItems = [
   ['cv', '#cv'],
 ];
 
-const cvHref = '/CV_Cristhian_Rolon.docx';
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+const cvHref = `${basePath}/CV_Cristhian_Rolon.docx`;
 type Language = 'es' | 'en';
 
 const translations = {
