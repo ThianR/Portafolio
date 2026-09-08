@@ -45,7 +45,7 @@ const translations = {
         Desarrollador Java y DBA.
       </>,
       'Mi experiencia abarca el ciclo completo del software. Al integrarme al equipo Java, participe en la creacion de la primera version web del ERP de la empresa. Desde entonces, he trabajado en multiples implementaciones donde combino el desarrollo eficiente, el diseno de bases de datos y la comunicacion directa con usuarios y directivos.',
-      'En 2022 estuve a cargo del desarrollo e implementacion del Sistema Integrado DIMABEL (SID). La implementacion fue exitosa y tuvo un impacto institucional importante; llevandome a recibir un reconocimiento oficial por parte del director de DIGEMABEL en 2024.',
+      'Entre 2022 y 2025 estuve a cargo del desarrollo, implementacion y soporte del Sistema Integrado DIMABEL (SID). La implementacion fue exitosa y tuvo un impacto institucional importante; llevandome a recibir un reconocimiento oficial por parte del director de DIGEMABEL en 2024.',
       <>
         Me motiva investigar y generar soluciones originales a problemas reales,
         algo que reflejo en los{' '}
@@ -69,12 +69,12 @@ const translations = {
         stack: ['Java', 'ERP Web', 'DBA', 'Implementacion'],
       },
       {
-        period: '2022',
-        role: 'Responsable de desarrollo e implementacion',
+        period: '2022 - 2025',
+        role: 'Responsable de desarrollo, implementacion y soporte',
         company: 'SID - Sistema Integrado DIMABEL',
         description:
-          'Lidere el desarrollo e implementacion del sistema SID. La puesta en marcha fue exitosa y acompano un cambio institucional de alto impacto: DIMABEL paso a convertirse en DIGEMABEL, Direccion General de Material Belico.',
-        stack: ['Java', 'Sistemas publicos', 'Implementacion', 'Usuarios clave'],
+          'Lidere el desarrollo, implementacion y soporte del sistema SID hasta 2025. La puesta en marcha fue exitosa y acompano un cambio institucional de alto impacto: DIMABEL paso a convertirse en DIGEMABEL, Direccion General de Material Belico.',
+        stack: ['Java', 'Sistemas publicos', 'Implementacion', 'Soporte'],
       },
       {
         period: '2024',
@@ -183,7 +183,7 @@ const translations = {
         DBA.
       </>,
       'My experience covers the full software lifecycle. After joining the Java team, I participated in building the first web version of the company ERP. Since then, I have worked on multiple implementations combining efficient development, database design and direct communication with users and executives.',
-      'In 2022 I was responsible for the development and implementation of SID, the Integrated DIMABEL System. The implementation was successful and had meaningful institutional impact, which led me to receive official recognition from the director of DIGEMABEL in 2024.',
+      'From 2022 to 2025 I was responsible for the development, implementation and support of SID, the Integrated DIMABEL System. The implementation was successful and had meaningful institutional impact, which led me to receive official recognition from the director of DIGEMABEL in 2024.',
       <>
         I am motivated by research and by creating original solutions to real
         problems, something reflected in the{' '}
@@ -207,12 +207,12 @@ const translations = {
         stack: ['Java', 'ERP Web', 'DBA', 'Implementation'],
       },
       {
-        period: '2022',
-        role: 'Development and implementation lead',
+        period: '2022 - 2025',
+        role: 'Development, implementation and support lead',
         company: 'SID - Integrated DIMABEL System',
         description:
-          'I led the development and implementation of SID. The launch was successful and supported a high-impact institutional change: DIMABEL became DIGEMABEL, the General Directorate of War Material.',
-        stack: ['Java', 'Public systems', 'Implementation', 'Key users'],
+          'I led the development, implementation and support of SID until 2025. The launch was successful and supported a high-impact institutional change: DIMABEL became DIGEMABEL, the General Directorate of War Material.',
+        stack: ['Java', 'Public systems', 'Implementation', 'Support'],
       },
       {
         period: '2024',
