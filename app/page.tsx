@@ -61,36 +61,52 @@ const translations = {
     ],
     experience: [
       {
-        period: '2019 - PRESENTE',
-        role: 'Analista de Sistemas-Desarrollador FullStack',
+        period: '2024 - PRESENTE',
+        role: 'Responsable tecnico de proyecto',
         company: 'Grupo Inventiva S.A.C.I',
         description:
-          'Participo en el desarrollo e implementacion de soluciones Java, nuevas versiones del ERP web de la empresa y proyectos para clientes con trato directo con usuarios, equipos tecnicos y directivos.',
-        stack: ['Java', 'ERP Web', 'DBA', 'Implementacion'],
+          'Actuo como responsable tecnico en proyectos web full stack, cubriendo relevamiento, analisis, diseno, programacion, integracion, despliegue, mantenimiento, soporte y capacitacion, con trato directo con usuarios, equipos tecnicos y directivos.',
+        stack: ['Full stack', 'Java', 'Oracle', 'Soporte'],
+      },
+      {
+        period: '2022 - 2024',
+        role: 'Desarrollador senior / Referente tecnico',
+        company: 'Grupo Inventiva S.A.C.I',
+        description:
+          'Actue como referente tecnico en optimizacion, mantenimiento evolutivo, integracion y despliegue de aplicaciones empresariales, resolviendo problemas complejos en ambientes de produccion junto a equipos funcionales y de soporte.',
+        stack: ['Java', 'Produccion', 'Integracion', 'Despliegue'],
+      },
+      {
+        period: '2020 - 2022',
+        role: 'Analista desarrollador',
+        company: 'Grupo Inventiva S.A.C.I',
+        description:
+          'Analice requerimientos funcionales y disene soluciones adaptadas a procesos empresariales, manteniendo componentes Oracle PL/SQL como consultas, procedimientos, funciones, triggers, paquetes y cursores.',
+        stack: ['Analisis', 'Oracle PL/SQL', 'Procesos', 'Base de datos'],
+      },
+      {
+        period: '2018 - 2020',
+        role: 'Desarrollador Java/Oracle',
+        company: 'Grupo Inventiva S.A.C.I',
+        description:
+          'Desarrolle y mantuve aplicaciones web full stack con Java, Spring Boot, APIs REST, JSF, PrimeFaces y arquitectura MVC, desplegando soluciones en Tomcat, GlassFish, Nginx y servidores Linux.',
+        stack: ['Java', 'Spring Boot', 'JSF', 'Linux'],
+      },
+      {
+        period: '2017 - 2018',
+        role: 'Desarrollador inicial',
+        company: 'Grupo Inventiva S.A.C.I',
+        description:
+          'Participe en la implementacion y mantenimiento de sistemas empresariales, adquiriendo conocimiento profundo de la logica de negocio y colaborando con control de versiones y construccion de proyectos.',
+        stack: ['Oracle Forms', 'iReport', 'Git', 'Maven'],
       },
       {
         period: '2022 - 2025',
-        role: 'Responsable de desarrollo, implementacion y soporte',
-        company: 'SID - Sistema Integrado DIMABEL',
+        role: 'Proyecto destacado: SID / DIGEMABEL',
+        company: 'Sistema Integrado DIMABEL',
         description:
-          'Lidere el desarrollo, implementacion y soporte del sistema SID hasta 2025. La puesta en marcha fue exitosa y acompano un cambio institucional de alto impacto: DIMABEL paso a convertirse en DIGEMABEL, Direccion General de Material Belico.',
-        stack: ['Java', 'Sistemas publicos', 'Implementacion', 'Soporte'],
-      },
-      {
-        period: '2024',
-        role: 'Reconocimiento institucional',
-        company: 'DIGEMABEL',
-        description:
-          'Recibi un reconocimiento por parte del director de DIGEMABEL por el trabajo realizado y el impacto del sistema implementado.',
-        stack: ['Reconocimiento', 'Impacto institucional'],
-      },
-      {
-        period: '2017 - 2019',
-        role: 'Desarrollador Oracle Forms e iReport',
-        company: 'Grupo Inventiva S.A.C.I',
-        description:
-          'Inicie mi carrera desarrollando y manteniendo soluciones con Oracle Forms e iReport, trabajando sobre procesos empresariales y reportes operativos antes de incorporarme al equipo Java.',
-        stack: ['Oracle Forms', 'iReport', 'Reportes', 'Procesos'],
+          'Fui responsable tecnico en el relevamiento, analisis, diseno, programacion, integracion, despliegue, mantenimiento, soporte y capacitacion del sistema SID, acompanando la transicion institucional de DIMABEL a DIGEMABEL y recibiendo reconocimiento oficial en 2024.',
+        stack: ['Java', 'Spring Boot', 'REST', 'Oracle 19c'],
       },
     ],
     projects: [
@@ -199,36 +215,52 @@ const translations = {
     ],
     experience: [
       {
-        period: '2019 - PRESENT',
-        role: 'Systems Analyst-FullStack Developer',
+        period: '2024 - PRESENT',
+        role: 'Technical project lead',
         company: 'Grupo Inventiva S.A.C.I',
         description:
-          'I work on Java solutions, new versions of the company ERP web platform and client projects, collaborating directly with users, technical teams and executives.',
-        stack: ['Java', 'ERP Web', 'DBA', 'Implementation'],
+          'I act as technical lead for full stack web projects, covering discovery, analysis, design, development, integration, deployment, maintenance, support and training while working directly with users, technical teams and executives.',
+        stack: ['Full stack', 'Java', 'Oracle', 'Support'],
+      },
+      {
+        period: '2022 - 2024',
+        role: 'Senior developer / Technical reference',
+        company: 'Grupo Inventiva S.A.C.I',
+        description:
+          'I worked as a technical reference for optimization, evolutionary maintenance, integration and deployment of business applications, solving complex production issues with functional and support teams.',
+        stack: ['Java', 'Production', 'Integration', 'Deployment'],
+      },
+      {
+        period: '2020 - 2022',
+        role: 'Systems analyst developer',
+        company: 'Grupo Inventiva S.A.C.I',
+        description:
+          'I analyzed functional requirements and designed software solutions for business processes, maintaining Oracle PL/SQL components such as queries, procedures, functions, triggers, packages and cursors.',
+        stack: ['Analysis', 'Oracle PL/SQL', 'Processes', 'Database'],
+      },
+      {
+        period: '2018 - 2020',
+        role: 'Java/Oracle Developer',
+        company: 'Grupo Inventiva S.A.C.I',
+        description:
+          'I developed and maintained full stack web applications with Java, Spring Boot, REST APIs, JSF, PrimeFaces and MVC architecture, deploying solutions on Tomcat, GlassFish, Nginx and Linux servers.',
+        stack: ['Java', 'Spring Boot', 'JSF', 'Linux'],
+      },
+      {
+        period: '2017 - 2018',
+        role: 'Initial developer',
+        company: 'Grupo Inventiva S.A.C.I',
+        description:
+          'I participated in the implementation and maintenance of business systems, building deep understanding of business logic and collaborating with version control and project build tools.',
+        stack: ['Oracle Forms', 'iReport', 'Git', 'Maven'],
       },
       {
         period: '2022 - 2025',
-        role: 'Development, implementation and support lead',
-        company: 'SID - Integrated DIMABEL System',
+        role: 'Featured project: SID / DIGEMABEL',
+        company: 'Integrated DIMABEL System',
         description:
-          'I led the development, implementation and support of SID until 2025. The launch was successful and supported a high-impact institutional change: DIMABEL became DIGEMABEL, the General Directorate of War Material.',
-        stack: ['Java', 'Public systems', 'Implementation', 'Support'],
-      },
-      {
-        period: '2024',
-        role: 'Institutional recognition',
-        company: 'DIGEMABEL',
-        description:
-          'I received recognition from the director of DIGEMABEL for the work delivered and the impact of the implemented system.',
-        stack: ['Recognition', 'Institutional impact'],
-      },
-      {
-        period: '2017 - 2019',
-        role: 'Oracle Forms and iReport Developer',
-        company: 'Grupo Inventiva S.A.C.I',
-        description:
-          'I began my career developing and maintaining Oracle Forms and iReport solutions, working on business processes and operational reports before joining the Java team.',
-        stack: ['Oracle Forms', 'iReport', 'Reports', 'Processes'],
+          'I was the technical lead for discovery, analysis, design, development, integration, deployment, maintenance, support and training of SID, supporting the institutional transition from DIMABEL to DIGEMABEL and receiving official recognition in 2024.',
+        stack: ['Java', 'Spring Boot', 'REST', 'Oracle 19c'],
       },
     ],
     projects: [
