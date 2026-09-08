@@ -2,13 +2,16 @@
 
 import type { CSSProperties } from 'react';
 import { useEffect, useState } from 'react';
-import { ArrowUp, ArrowUpRight, Code2, GitBranch } from 'lucide-react';
+import { ArrowUp, ArrowUpRight, Code2, Download, GitBranch } from 'lucide-react';
 
 const navItems = [
   ['ABOUT', '#about'],
   ['EXPERIENCE', '#experience'],
   ['PROJECTS', '#projects'],
+  ['CV', '#cv'],
 ];
+
+const cvHref = '/CV_Cristhian_Rolon.docx';
 
 const socialLinks = [
   {
@@ -120,7 +123,7 @@ export default function Home() {
   const [showProfileDock, setShowProfileDock] = useState(false);
 
   useEffect(() => {
-    const sectionIds = ['about', 'experience', 'projects'];
+    const sectionIds = ['about', 'experience', 'projects', 'cv'];
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -216,6 +219,14 @@ export default function Home() {
             <p className="mt-4 max-w-xs text-lg leading-7 text-slate-400">
               Construyo e implemento sistemas empresariales con impacto real.
             </p>
+            <a
+              href={cvHref}
+              download="CV_Cristhian_Rolon.docx"
+              className="resume-link mt-8 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.14em] text-slate-200 transition hover:text-sky-300"
+            >
+              Descargar CV
+              <Download size={16} />
+            </a>
 
             <nav className="mt-16 hidden lg:block" aria-label="Principal">
               <ul>
@@ -419,6 +430,41 @@ export default function Home() {
                 </article>
               ))}
             </div>
+          </section>
+
+          <div className="section-divider" aria-hidden="true" />
+
+          <section id="cv" className="reveal-on-scroll mt-28 scroll-mt-24">
+            <div className="sticky top-0 z-10 -mx-6 mb-4 bg-background/85 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:hidden">
+              <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-slate-200">
+                CV
+              </h2>
+            </div>
+            <article className="portfolio-row group grid gap-4 rounded-md p-0 transition sm:grid-cols-[9rem_1fr] sm:gap-8 lg:-mx-6 lg:p-6">
+              <p className="pt-1 font-mono text-sm font-semibold uppercase tracking-wide text-slate-500">
+                Resume
+              </p>
+              <div>
+                <h3 className="text-lg font-semibold leading-snug text-slate-100">
+                  Curriculum Vitae
+                  <span className="text-slate-500"> · </span>
+                  <span className="text-slate-300">Cristhian Rolon</span>
+                </h3>
+                <p className="mt-3 text-base leading-7 text-slate-400">
+                  Version descargable de mi perfil profesional como Analista de
+                  Sistemas-Desarrollador FullStack, con experiencia Java, bases
+                  de datos e implementacion de sistemas empresariales.
+                </p>
+                <a
+                  href={cvHref}
+                  download="CV_Cristhian_Rolon.docx"
+                  className="resume-download mt-6 inline-flex items-center gap-3 rounded border border-slate-700/80 px-4 py-3 text-sm font-bold uppercase tracking-[0.14em] text-slate-200 transition hover:border-sky-300/50 hover:text-sky-300"
+                >
+                  Descargar CV
+                  <Download size={17} />
+                </a>
+              </div>
+            </article>
           </section>
 
           <footer className="mt-28 max-w-md pb-20 text-sm leading-6 text-slate-500">

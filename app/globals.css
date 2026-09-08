@@ -227,6 +227,26 @@ body {
   transform: translate(2px, -2px);
 }
 
+.resume-link,
+.resume-download {
+  box-shadow: 0 0 0 0 rgb(125 161 217 / 0%);
+}
+
+.resume-link:hover svg,
+.resume-download:hover svg {
+  transform: translateY(2px);
+}
+
+.resume-link svg,
+.resume-download svg {
+  transition: transform 180ms ease;
+}
+
+.resume-download:hover {
+  box-shadow: 0 0 28px rgb(125 161 217 / 16%);
+  transform: translateY(-2px);
+}
+
 .social-link {
   box-shadow: 0 0 0 0 rgb(125 161 217 / 0%);
   transition:
